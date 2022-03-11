@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/solid.css" integrity="sha384-LA8Ug4T/nhVkyhrSmSirsoAo9iDrBk8E7U80aSPeD+w3vO8PzOJIS6agGcbIwwX0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/fontawesome.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/brands.css" integrity="sha384-V5Z1KgRRJyY878qCx7+zUeTDm0FgjoYrbmSortFqRPGz+Ue6XDe4uIiMqB3tB/wd" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/fontawesome.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
+    <title>URL Shortner - Mario Prieto</title>
+  </head>
+  <body>
+
+    <div class="topnav" id="myTopnav">
+      <a href="/">Home</a>
+      <a href="/docs">Documentation</a>
+      <a href="/getapi">Get API KEY</a>
+      <a href="https://marioprieto.com">Made by Mario Prieto</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    
+    <div class="s003">
+      
+      <form action="/short" method="POST">
+        <h1 style="text-align: center;">URL Shortner</h1>
+
+        
+        <% if (result==null) { %>
+          <div class="inner-form"> 
+            <div class="input-field second-wrap">
+              <input id="search" type="text" placeholder="Write here the URL you want to short" autocomplete="off" name="url" required/>
+            </div>
+
+            <div class="input-field third-wrap">
+              <button class="btn-search" type="submit">
+                <i class="fas fa-cut"></i>
+              </button>
+            </div>
+
+        <%} else if (result!=null) { %>
+
+            <div class="inner-form">
+              <div id="result">
+                <h1><a href='<%=result%>'><%= result%></a></h1>
+              </div>
+            </div>
+
+        <%}%>
+
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+      </script>
+
+  </body>
+</html>
